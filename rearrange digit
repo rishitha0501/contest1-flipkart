@@ -1,0 +1,13 @@
+class Solution:
+    def smallestnum (self,N):
+        l=[int(x) for x in N]
+        l=sorted(l)
+        zeros=''
+        num=''
+        for i in l:
+            k=str(i)
+            if i==0:
+                zeros=zeros+k
+            else:
+                num=num+k
+        return num[0]+zeros+num[1:]
