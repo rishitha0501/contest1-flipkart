@@ -1,0 +1,30 @@
+class Solution{
+    static int micsandjury(int N,int M,int[] teams){
+        int l=1,h=0,ans=0;
+        for(int i=0;i<M;i++){
+            if(h<teams[i]){
+                h=teams[i];
+            }
+        }
+        while(l<=h){
+            int mid=(l+h)/2;
+            int group=0;
+            for(int i=0;i<M;i++){
+                if(teams[i]%mid!=0){
+                    group+=teams[i]/mid+1;
+                }
+                else{
+                    group+=teams[i]/mid;
+                }
+            }
+                if(group>N){
+                    l=mid+1;
+                }
+                else{
+                    ans=mid;
+                    h=mid-1;
+                }
+        }
+                return ans;
+    }
+}
